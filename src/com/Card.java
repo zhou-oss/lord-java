@@ -71,7 +71,7 @@ public class Card extends JLabel implements MouseListener{
 	 */
 	//·´Ãæ
 	public void turnRear() {
-		this.setIcon(new ImageIcon("pics/cards/cardbg.png"));
+		this.setIcon(new ImageIcon("pics/cards1/rear.gif"));
 		this.up = false;
 	}
 	
