@@ -3,7 +3,24 @@ package com;
 import java.util.List;
 
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class AICardType.AI出牌
+ *
+ * @author zhouguangyu
+ * @version  v1.0
+ * @date 2020-7-5
+ */
 public class AICardType {
+	
+	/**
+	 * Ai 3.
+	 *
+	 * @param model the model
+	 * @param player the player
+	 * @param list the list
+	 * @param role the role
+	 */
 	// 顺子
 	public static void AI_3(List<String> model, List<Card> player, List<String> list, int role) {
 
@@ -16,6 +33,15 @@ public class AICardType {
 		}
 	}
 
+	/**
+	 * Ai 4.
+	 *
+	 * @param model1 the model 1
+	 * @param model2 the model 2
+	 * @param player the player
+	 * @param list the list
+	 * @param role the role
+	 */
 	// 飞机带单，双
 	public static void AI_4(List<String> model1, List<String> model2, List<Card> player, List<String> list, int role) {
 		// 排序按重复数
@@ -37,6 +63,15 @@ public class AICardType {
 		}
 	}
 
+	/**
+	 * Ai 5.
+	 *
+	 * @param model1 the model 1
+	 * @param model2 the model 2
+	 * @param player the player
+	 * @param list the list
+	 * @param role the role
+	 */
 	// 4带1，2
 	public static void AI_5(List<String> model1, List<String> model2, List<Card> player, List<String> list, int role) {
 		// 排序按重复数
@@ -55,6 +90,14 @@ public class AICardType {
 		}
 	}
 
+	/**
+	 * Ai 1.
+	 *
+	 * @param model the model
+	 * @param player the player
+	 * @param list the list
+	 * @param role the role
+	 */
 	// 单牌，对子，3个，4个,通用
 	public static void AI_1(List<String> model, List<Card> player, List<String> list, int role) {
 
@@ -67,6 +110,15 @@ public class AICardType {
 
 	}
 
+	/**
+	 * Ai 2.
+	 *
+	 * @param model1 the model 1
+	 * @param model2 the model 2
+	 * @param player the player
+	 * @param list the list
+	 * @param role the role
+	 */
 	// 3带1,2,4带1,2
 	public static void AI_2(List<String> model1, List<String> model2, List<Card> player, List<String> list, int role) {
 		// model1是主牌,model2是带牌,player是玩家出的牌,,list是准备回的牌
@@ -93,6 +145,12 @@ public class AICardType {
 			list.clear();
 	}
 	
+	/**
+	 * Gets the value int.
+	 *
+	 * @param n the n
+	 * @return the value int
+	 */
 	public static int getValueInt(String n) {
 		String name[] = n.split(",");
 		String s = name[0];

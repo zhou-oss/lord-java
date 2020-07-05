@@ -27,35 +27,91 @@ import dao.beginDao;
 import dao.userDataDao;
 import util.getTime;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class 注册.
+ *
+ * @author zhouguangyu
+ * @version  v1.0
+ * @date 2020-7-5
+ */
 public class Register {
+	
+	/** The dao. */
 	RegisterDao dao = new RegisterDao();
+	
+	/** The dao 1. */
 	LoginDao    dao1=new LoginDao();
+	
+	/** The dao 2. */
 	userDataDao   dao2=new userDataDao();
+	
+	/** The dao 3. */
 	beginDao    dao3=new beginDao();
+	
+	/** The frame. */
 	// 准备容器
 	private JFrame frame;
 
+	/** The pan north. */
 	private JPanel panNorth;
+	
+	/** The lbl new user. */
 	private JLabel lblNewUser;
+	
+	/** The txt new user. */
 	private JTextField txtNewUser;
+	
+	/** The lbl password. */
 	private JLabel lblPassword;
+	
+	/** The txt password. */
 	private JPasswordField txtPassword;
+	
+	/** The lbl password 1. */
 	private JLabel lblPassword1;
+	
+	/** The txt password 1. */
 	private JPasswordField txtPassword1;
 
+	/** The pan center. */
 	private JPanel panCenter;
+	
+	/** The lblname. */
 	private JLabel lblname;
+	
+	/** The txtname. */
 	private JTextField txtname;
+	
+	/** The lbl sex. */
 	private JLabel lblSex;
+	
+	/** The lbl sex 1. */
 	private JLabel lblSex1;
+	
+	/** The boy. */
 	private JRadioButton boy;
+	
+	/** The girl. */
 	private JRadioButton girl;
+	
+	/** The group. */
 	ButtonGroup group;
 
+	/** The pan south. */
 	private JPanel panSouth;
+	
+	/** The btn register. */
 	private JButton btnRegister;
+	
+	/** The btn clear. */
 	private JButton btnClear;
 
+	/**
+	 * 构造方法.
+	 *
+	 * @param JFrame容器
+	 */
 	// 初始化容器
 	public Register(JFrame frame1) {
 		// 北部容器

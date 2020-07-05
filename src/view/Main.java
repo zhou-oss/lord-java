@@ -31,44 +31,101 @@ import util.ExcelTest;
 import util.rankFile;
 import util.ruleFile;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class 主菜单.
+ * @author zhouguangyu
+ * @version  v1.0
+ * @date 2020-7-5
+ */
 public class Main implements ActionListener {
+	
+	/** The dao. */
 	private modifiDao dao = new modifiDao();
+	
+	/** The frame. */
 	private JFrame frame;
+	
+	/** The panel. */
 	private JPanel panel;
+	
+	/** The bar. */
 	private JMenuBar bar;
 
+	/** The game. */
 	private JMenu game;
+	
+	/** The help. */
 	private JMenu help;
+	
+	/** The player. */
 	private JMenu player;
 
+	/** The new game. */
 	private JMenuItem newGame;
+	
+	/** The over game. */
 	private JMenuItem overGame;
+	
+	/** The rank. */
 	private JMenuItem rank;
 
+	/** The rules. */
 	private JMenuItem rules;
+	
+	/** The about. */
 	private JMenuItem about;
+	
+	/** The user. */
 	private JMenuItem user;
+	
+	/** The del. */
 	private JMenuItem del;
 
+	/** The begin. */
 	private JButton begin;
+	
+	/** The im excel. */
 	private JButton imExcel;
+	
+	/** The ex excel. */
 	private JButton exExcel;
+	
+	/** The txt word. */
 	private JButton txtWord;
+	
+	/** The tool bar. */
 	JToolBar toolBar;
 
+	/** The card. */
 	private Card card[];
+	
+	/** The players. */
 	private List<Card> players[] = null;
+	
+	/** The player cards. */
 	private List<Card> playerCards[] = null;
+	
+	/** The landlord card. */
 	private List<Card> landlordCard = null;
+	
+	/** The image. */
 	Image image;
+	
+	/** The image 1. */
 	Image image1;
+	
+	/** The str. */
 	String str = LoginUI.userNameGame;
 
+	/**
+	 * 空构造方法.
+	 */
 	public Main() {
 		frame = new JFrame("斗地主");
 		panel = new JPanel();
 
-		image = new ImageIcon("pics" + File.separator + "bgx.png").getImage();
+		image = new ImageIcon("pics" + File.separator + "bgx1.png").getImage();
 		panel = new BackgroundPanel(image);
 
 		bar = new JMenuBar();
@@ -141,6 +198,14 @@ public class Main implements ActionListener {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 
+	
+	    /* (非 Javadoc)
+	    * 
+	    * 
+	    * @param e
+	    * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
+	    */
+	    
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == newGame) {

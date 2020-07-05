@@ -22,26 +22,66 @@ import javax.swing.JTextField;
 
 import dao.LoginDao;
 
+// TODO: Auto-generated Javadoc
+/**
+ * 登录类.
+ *
+ * @author zhouguangyu
+ * @version  v1.0
+ * @date 2020-7-5
+ */
 public class LoginUI {
+
+	/** The dao. */
 	LoginDao dao=new LoginDao();
-	// 初始化
+	
+	/** The frame. */
 	private JFrame frame;
+
+	/** The pan north. */
 	private JPanel panNorth;
+
+	/** The lbl north. */
 	private JLabel lblNorth;
+	
+	/** The pan center. */
 	private JPanel panCenter;
+	
+	/** The lbl user. */
 	private JLabel lblUser;
+	
+	/** The txt user. */
 	private JTextField txtUser;
+	
+	/** The lbl password. */
 	private JLabel lblPassword;
+	
+	/** The txt password. */
 	private JPasswordField txtPassword;
+	
+	/** The pan south. */
 	private JPanel panSouth;
+	
+	/** The btn longin. */
 	private JButton btnLongin;
+	
+	/** The btn clear. */
 	private JButton btnClear;
+	
+	/** The btn register. */
 	private JButton btnRegister;
+	
+	/** The user name game. */
 	public static String userNameGame="123";
+	
+	/**
+	 * Instantiates a new login UI.
+	 */
 	public LoginUI() {
 		// ==准备组件
 		frame = new JFrame("斗地主");
 		//容器北部
+		
 		panNorth = new JPanel();
 		lblNorth = new JLabel();
 		lblNorth.setIcon(new ImageIcon("pics"+File.separator+"tables.png"));
@@ -127,6 +167,12 @@ public class LoginUI {
 		});
 		
 	}
+	
+	/**
+	 * 主方法.
+	 *
+	 * @param args the arguments
+	 */
 	public static void main(String[] args) {
 		new LoginUI();
 	}

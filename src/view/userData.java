@@ -23,20 +23,55 @@ import dao.modifiDao;
 import dao.userDataDao;
 import util.BackgroundPanel;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class userData.
+ *
+ * @author zhouguangyu
+ * @version  v1.0
+ * @date 2020-7-5
+ */
 public class userData extends JFrame implements ActionListener{
+	
+	/** The content pane. */
 	private JPanel contentPane;
+	
+	/** The image. */
 	private Image image;
+	
+	/** The dao. */
 	private userDataDao dao;	
+	
+	/** The dao 1. */
 	private modifiDao dao1;
+	
+	/** The sql. */
 	private String sql;
+	
+	/** The str. */
 	private String str[]=new String[6];
+	
+	/** The modifi. */
 	JButton  modifi=new JButton("修改");
+	
+	/** The yes. */
 	JButton  yes=new JButton("确认");
+	
+	/** The lbl new label 2. */
 	JTextField lblNewLabel_2 = new JTextField();
+	
+	/** The lbl new label 3. */
 	JTextField lblNewLabel_3 = new JTextField();
+	
+	/** The lbl new label 9. */
 	JTextField lblNewLabel_9 = new JTextField();
 	
+	/** The flag. */
 	boolean flag=false;
+	
+	/**
+	 * Instantiates a new user data.
+	 */
 	public userData() {
 		dao=new userDataDao();
 		dao1=new modifiDao();
@@ -111,6 +146,15 @@ public class userData extends JFrame implements ActionListener{
 		lblNewLabel_9.setFont(new Font("隶书",Font.BOLD,20));
 		yes.addActionListener(this);
 	}
+	
+	
+	    /* (非 Javadoc)
+	    * 
+	    * 
+	    * @param e
+	    * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
+	    */
+	    
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource()==modifi) {

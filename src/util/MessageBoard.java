@@ -1,8 +1,4 @@
 package util;
-/**
- * 留言板
- * @author 汐子
- */
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -29,24 +25,54 @@ import javax.swing.table.DefaultTableModel;
 
 import view.LoginUI;
 
-public class LeavingMessageView extends JFrame {
+// TODO: Auto-generated Javadoc
+/**
+ * 留言板.
+ *
+ * @author zhouguangyu
+ * @version  v1.0
+ * @date 2020-7-5
+ */
+public class MessageBoard extends JFrame {
+	
+	/**  查找文本框. */
 	private JTextField textfind;
+	
+	/**  留言表格. */
 	private JTable leavingtable;
+	
+	/**  留言人文本框. */
 	private JTextField textname;
+	
+	/**  主题文本框. */
 	private JTextField texttopic;
+	
+	/** The textcontact. */
 	private JTextPane textcontact;
+	
+	/** The btnadd. */
 	private JButton btnadd;
+	
+	/** The btndelete. */
 	private JButton btndelete;
+	
+	/** The btnalter. */
 	private JButton btnalter;
+	
+	/**  文件路径. */
 	private String path = "file/lead.txt";
+	
+	/** The textvalues. */
 	private JTextField textvalues;
+	
+	/** 用户名. */
 	private String username;
 
 	/**
-	 * Create the frame.
+	 * 构造方法.
 	 */
-	public LeavingMessageView() {
-		setTitle("斗地主系统");
+	public MessageBoard() {
+		setTitle("斗地主吐槽中心");
 		setBounds(100, 100, 479, 550);
 		setLocationRelativeTo(null);
 		getContentPane().setLayout(null);
@@ -190,15 +216,17 @@ public class LeavingMessageView extends JFrame {
 		getContentPane().add(btnalter);
 		this.fillTeacherTable();
 	}
+	
 	/**
-	 * 查询操作
-	 * @param e
+	 * 查询操作.
+	 *
+	 * @param e the e
 	 */
 	private  void btnfindActionPerformed(ActionEvent e) {
 		String tname =textfind.getText();
 		DefaultTableModel dtm = (DefaultTableModel) leavingtable.getModel();
 		dtm.setRowCount(0);
-		ArrayList<LeavingMessage> arrayList = new ArrayList<LeavingMessage>();
+		ArrayList<MessageBoardClass> arrayList = new ArrayList<MessageBoardClass>();
 	    Pattern tPattern =Pattern.compile(tname);
 		try {
 			ReadFile.readStudent(path, arrayList);
@@ -206,7 +234,7 @@ public class LeavingMessageView extends JFrame {
 			for (int i = 0; i < arrayList.size(); i++) {
 				Matcher tMatcher = tPattern.matcher(arrayList.get(i).getContact());
 				if (tMatcher.find()) {
-					LeavingMessage show = arrayList.get(i);
+					MessageBoardClass show = arrayList.get(i);
 					Vector vector = new Vector();
 					vector.add(num);
 					vector.add(show.getName());
@@ -224,10 +252,10 @@ public class LeavingMessageView extends JFrame {
 	}
 
 	/**
-	 * 修改操作
-	 * 
-	 * @param e
-	 * @throws Exception
+	 * 修改操作.
+	 *
+	 * @param e the e
+	 * @throws Exception the exception
 	 */
 	private void btnalterActionPerformed(ActionEvent e) throws Exception {
 		// TODO Auto-generated method stub
@@ -247,8 +275,8 @@ public class LeavingMessageView extends JFrame {
 			JOptionPane.showMessageDialog(null, "留言内容不能为空", "系统提示", JOptionPane.INFORMATION_MESSAGE);
 			return;
 		}
-		LeavingMessage leavingMessage = new LeavingMessage();
-		ArrayList<LeavingMessage> arrayList = new ArrayList<LeavingMessage>();
+		MessageBoardClass leavingMessage = new MessageBoardClass();
+		ArrayList<MessageBoardClass> arrayList = new ArrayList<MessageBoardClass>();
 		ReadFile.readStudent(path, arrayList);
 		leavingMessage.setName(tname);
 		leavingMessage.setTopic(topic);
@@ -261,10 +289,10 @@ public class LeavingMessageView extends JFrame {
 	}
 
 	/**
-	 * 删除操作
-	 * 
-	 * @param e
-	 * @throws Exception
+	 * 删除操作.
+	 *
+	 * @param e the e
+	 * @throws Exception the exception
 	 */
 	private void btndeleteActionPerformed(ActionEvent e) throws Exception {
 		String tname = textname.getText();
@@ -272,11 +300,11 @@ public class LeavingMessageView extends JFrame {
 			JOptionPane.showMessageDialog(null, "请选择要删除的记录", "系统提示", JOptionPane.INFORMATION_MESSAGE);
 			return;
 		}
-		ArrayList<LeavingMessage> arrayList = new ArrayList<LeavingMessage>();
+		ArrayList<MessageBoardClass> arrayList = new ArrayList<MessageBoardClass>();
 		ReadFile.readStudent(path, arrayList);
 		int index = -1;
 		for (int x = 0; x < arrayList.size(); x++) {
-			LeavingMessage s = arrayList.get(x);
+			MessageBoardClass s = arrayList.get(x);
 			if (s.getName().equals(tname)) {
 				index = x;
 				break;
@@ -294,10 +322,10 @@ public class LeavingMessageView extends JFrame {
 	}
 
 	/**
-	 * 添加操作
-	 * 
-	 * @param e
-	 * @throws Exception
+	 * 添加操作.
+	 *
+	 * @param e the e
+	 * @throws Exception the exception
 	 */
 	private void btnaddActionPerformed(ActionEvent e) throws Exception {
 		// TODO Auto-generated method stub
@@ -312,8 +340,8 @@ public class LeavingMessageView extends JFrame {
 			JOptionPane.showMessageDialog(null, "留言内容不能为空", "系统提示", JOptionPane.INFORMATION_MESSAGE);
 			return;
 		}
-		LeavingMessage leavingMessage = new LeavingMessage();
-		ArrayList<LeavingMessage> arrayList = new ArrayList<LeavingMessage>();
+		MessageBoardClass leavingMessage = new MessageBoardClass();
+		ArrayList<MessageBoardClass> arrayList = new ArrayList<MessageBoardClass>();
 		ReadFile.readStudent(path, arrayList);
 		leavingMessage.setName(tname);
 		leavingMessage.setTopic(topic);
@@ -326,7 +354,7 @@ public class LeavingMessageView extends JFrame {
 	}
 
 	/**
-	 * 置空操作
+	 * 置空操作.
 	 */
 	private void resetValues() {
 		// TODO Auto-generated method stub
@@ -336,7 +364,9 @@ public class LeavingMessageView extends JFrame {
 	}
 
 	/**
-	 * 表格单击事件
+	 * 表格单击事件.
+	 *
+	 * @param evt the evt
 	 */
 	private void leavingTableMousePressed(MouseEvent evt) {
 		// TODO Auto-generated method stub
@@ -356,19 +386,17 @@ public class LeavingMessageView extends JFrame {
 	}
 
 	/**
-	 * 表格初始化
-	 * 
-	 * @param schoolMessage
+	 * 表格初始化.
 	 */
 	private void fillTeacherTable() {
 		DefaultTableModel dtm = (DefaultTableModel) leavingtable.getModel();
 		dtm.setRowCount(0);
-		ArrayList<LeavingMessage> arrayList = new ArrayList<LeavingMessage>();
+		ArrayList<MessageBoardClass> arrayList = new ArrayList<MessageBoardClass>();
 		try {
 			ReadFile.readStudent(path, arrayList);
 			int num = 1;
 			for (int i = 0; i < arrayList.size(); i++) {
-				LeavingMessage show = arrayList.get(i);
+				MessageBoardClass show = arrayList.get(i);
 				Vector vector = new Vector();
 				vector.add(num);
 				vector.add(show.getName());

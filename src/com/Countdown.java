@@ -12,19 +12,52 @@ import dao.gameDataDao;
 import util.getTime;
 import view.LoginUI;
 
+// TODO: Auto-generated Javadoc
+/**
+ * 倒计时.
+ *
+ * @author zhouguangyu
+ * @version  v1.0
+ * @date 2020-7-5
+ */
 public class Countdown extends Thread {
+	
+	/** The dao. */
 	gameDataDao dao=new gameDataDao();
+	
+	/** The begin. */
 	private Begin begin;
+	
+	/** The time. */
 	private int time;
+	
+	/** The is run. */
 	boolean isRun = true;
+	
+	/** The dizhu. */
 	int dizhu;
+	
+	/** The ai. */
 	AICardType ai = new AICardType();
 
+	/**
+	 * Instantiates a new countdown.
+	 *
+	 * @param 游戏开始类
+	 * @param 倒计时长
+	 */
 	public Countdown(Begin begin, int time) {
 		this.time = time;
 		this.begin = begin;
 	}
 
+	
+	    /* (非 Javadoc)
+	    * 
+	    * 
+	    * @see java.lang.Thread#run()
+	    */
+	    
 	public void run() {
 		// 自己抢地主
 		while (time > -1 && isRun) {
@@ -129,6 +162,10 @@ public class Countdown extends Thread {
 			}
 		}
 	}
+	
+	/**
+	 * 数据库操作.
+	 */
 	public void daoInit1() {
 		Random a = new Random();
 		int b = a.nextInt(1000) + 1000;
@@ -138,6 +175,10 @@ public class Countdown extends Thread {
 		begin.dao.saveUserInfo(sql, begin.num, getScore, begin.bgame, 
 				begin.ogame,LoginUI.userNameGame);
 	}
+	
+	/**
+	 * 数据库操作.
+	 */
 	public void daoInit() {
 		Random a = new Random();
 		int b = a.nextInt(1000) + 1000;
@@ -147,7 +188,12 @@ public class Countdown extends Thread {
 		begin.dao.saveUserInfo(sql, begin.num, getScore, begin.bgame, 
 				begin.ogame,LoginUI.userNameGame);
 	}
-	// 地主牌翻看
+	
+	/**
+	 * 打开地主牌.
+	 *
+	 * @param boolean
+	 */
 	public void openlord(boolean is) {
 		for (int i = 0; i < 3; i++) {
 			if (is)
@@ -158,11 +204,21 @@ public class Countdown extends Thread {
 		}
 	}
 
+	/**
+	 * AI走牌.
+	 *
+	 * @param AI玩家号
+	 */
 	public void computer(int a) {
 		timeWait(1, a); // 定时
 		ShowCard(a); // 出牌
 	}
 
+	/**
+	 * 出牌.
+	 *
+	 * @param 出牌玩家号
+	 */
 	public void ShowCard(int role) {
 		int orders[] = new int[] { 4, 3, 2, 1, 5 };
 		Model model = Remove.getModel(begin.playerList[role], orders);
@@ -370,6 +426,13 @@ public class Countdown extends Thread {
 			card.turnFront();
 	}
 
+	/**
+	 * 获得卡牌名字.
+	 *
+	 * @param list the list
+	 * @param n the n
+	 * @return the card by name
+	 */
 	// 按name获得Card，方便从Model取出
 	public List getCardByName(List<Card> list, String n) {
 		String[] name = n.split(",");
@@ -385,7 +448,12 @@ public class Countdown extends Thread {
 		return cardsList;
 	}
 
-	// 延时，模拟时钟
+	/**
+	 * 延时，模拟时钟.
+	 *
+	 * @param 玩家号
+	 * @param 手牌
+	 */
 	public void timeWait(int n, int player) {
 
 		if (begin.currentList[player].size() > 0)
@@ -413,7 +481,11 @@ public class Countdown extends Thread {
 		begin.time[player].setVisible(false);
 	}
 
-	// 判断输赢
+	/**
+	 * 判断输赢.
+	 *
+	 * @return true, if 赢了
+	 */
 	public boolean win() {
 		for (int i = 0; i < 3; i++) {
 			if (begin.playerList[i].size() == 0) {
@@ -434,6 +506,11 @@ public class Countdown extends Thread {
 		return false;
 	}
 
+	/**
+	 *设置地主图标.
+	 *
+	 * @param 地主号
+	 */
 	public void setPicLord(int a) {
 		Point p = new Point();
 		if (a == 1) {
@@ -452,6 +529,11 @@ public class Countdown extends Thread {
 		begin.lordlbl.setVisible(true);
 	}
 
+	/**
+	 * 休眠.
+	 *
+	 * @param 时间
+	 */
 	public void Sleep(int a) {
 		try {
 			Thread.sleep(a * 1000);
@@ -461,6 +543,11 @@ public class Countdown extends Thread {
 		}
 	}
 
+	/**
+	 * 翻转.
+	 *
+	 * @param 翻转true
+	 */
 	// 打开出牌按钮
 	public void turnOn(boolean flag) {
 		begin.publishCard[0].setVisible(flag);

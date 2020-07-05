@@ -7,16 +7,46 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import dao.JDBConnectionDao;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class userDataDao.
+ *
+ * @author zhouguangyu
+ * @version  v1.0
+ * @date 2020-7-5
+ */
 public class userDataDao {
+	
+	/** The pstmt. */
 	private PreparedStatement pstmt;
+	
+	/** The stmt. */
 	private Statement stmt;
+	
+	/** The rs. */
 	private ResultSet rs;
+	
+	/** The conn. */
 	private Connection conn = null;
 
+	/**
+	 * Instantiates a new user data dao.
+	 */
 	public userDataDao() {
 		conn = JDBConnectionDao.getConnection();
 	}
 
+	/**
+	 * 插入.
+	 *
+	 * @param sql the sql
+	 * @param user the user
+	 * @param name the name
+	 * @param sum the sum
+	 * @param livel the livel
+	 * @param score the score
+	 * @return the int
+	 */
 	// 保存用户信息
 	public int saveUserInfo(String sql, String user, String name, 
 			String sum, String livel,String score) {
@@ -34,6 +64,13 @@ public class userDataDao {
 			return 0;
 		}
 	}
+	
+	/**
+	 * 查询.
+	 *
+	 * @param sql the sql
+	 * @return the result set
+	 */
 	// 查询用户信息，返回结果集
 	public ResultSet queryUserInfo(String sql) {
 		try {

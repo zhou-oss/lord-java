@@ -25,36 +25,84 @@ import dao.beginDao;
 import util.BackgroundPanel;
 import util.getTime;
 
+// TODO: Auto-generated Javadoc
+/**
+ * 游戏开始.
+ *
+ * @author zhouguangyu
+ * @version  v1.0
+ * @date 2020-7-5
+ */
 public class Begin implements ActionListener {
+	
+	/** The dao. */
 	beginDao dao=new beginDao();
+	
+	/** The num. */
 	String num;
+	
+	/** The bgame. */
 	String bgame;
+	
+	/** The ogame. */
 	String ogame;
+	
+	/** The frame. */
 	// 定义组件
 	JFrame frame = new JFrame("斗地主");
+	
+	/** The panel. */
 	JPanel panel = new JPanel();
+	
+	/** The image. */
 	Image image;
+	
+	/** The landlord. */
 	// 抢地主按钮
 	JButton landlord[] = new JButton[2];
+	
+	/** The publish card. */
 	// 出牌按钮
 	JButton publishCard[] = new JButton[2];
+	
+	/** The lord list. */
 	// 地主牌
 	List<Card> lordList;
+	
+	/** The player list. */
 	// 定义3个玩家手牌
 	List<Card> playerList[] = new ArrayList[3];
+	
+	/** The current list. */
 	// 当前的出牌
 	List<Card> currentList[] = new ArrayList[3];
+	
+	/** The card. */
 	// 定义54张牌
 	Card card[] = new Card[60];
+	
+	/** The time. */
 	// 计时器
 	JTextField time[] = new JTextField[3];
 
+	/** The countdown. */
 	Countdown countdown;
+	
+	/** The lord flag. */
 	int lordFlag;// 地主标志
+	
+	/** The now. */
 	int now;// 出牌人
+	
+	/** The next player. */
 	boolean nextPlayer = false; // 转换角色
 
+	/** The lordlbl. */
 	JLabel lordlbl = new JLabel(new ImageIcon("pics/dizhu.gif"));
+	
+	/**
+	 * Instantiates a new begin.
+	 */
 	public Begin() {
 		daoInit();
 		Init();// 初始化容器
@@ -64,6 +112,10 @@ public class Begin implements ActionListener {
 		countdown = new Countdown(this, 15);
 		countdown.start();
 	}
+	
+	/**
+	 * 数据库初始化.
+	 */
 	@Test
 	public void daoInit() {
 		Random random=new Random();
@@ -82,6 +134,10 @@ public class Begin implements ActionListener {
 		}
 		bgame=getTime.nowTime();
 	}
+	
+	/**
+	 * 背景初始化.
+	 */
 	public void Init() {
 		// 设置panel背景
 		image = new ImageIcon("pics" + File.separator + "bg.jpg").getImage();
@@ -100,6 +156,9 @@ public class Begin implements ActionListener {
 		frame.setResizable(false);
 	}
 
+	/**
+	 * 初始化牌，洗牌，发牌.
+	 */
 	public void CardInit() {
 		int count = 1;
 		// 初始化牌
@@ -163,6 +222,9 @@ public class Begin implements ActionListener {
 		}
 	}
 
+	/**
+	 * 按钮初始化.
+	 */
 	public void setInit() {
 
 		landlord[0] = new JButton("抢地主");
@@ -197,12 +259,23 @@ public class Begin implements ActionListener {
 			currentList[i] = new ArrayList<Card>();
 	}
 
+	/**
+	 * 设置抢地主按钮.
+	 */
 	public void getLord() {
 		time[1].setVisible(true);
 		for (int i = 0; i < 2; i++)
 			landlord[i].setVisible(true);
 	}
 
+	
+	    /* (非 Javadoc)
+	    * 
+	    * 
+	    * @param e
+	    * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
+	    */
+	    
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == landlord[0]) {

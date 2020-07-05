@@ -17,12 +17,34 @@ import javax.swing.border.EmptyBorder;
 import dao.gameDataDao;
 import util.BackgroundPanel;
 
+// TODO: Auto-generated Javadoc
+/**
+ * 游戏数据类.
+ *
+ * @author zhouguangyu
+ * @version  v1.0
+ * @date 2020-7-5
+ */
 public class gameData extends JFrame{
+	
+	/** The content pane. */
 	private JPanel contentPane;
+	
+	/** The image. */
 	private Image image;
+	
+	/** The dao. */
 	private gameDataDao dao;
+	
+	/** The sql. */
 	private String sql;
+	
+	/** The str. */
 	private String str[]=new String[6];
+	
+	/**
+	 * Instantiates a new game data.
+	 */
 	public gameData() {
 		dao=new gameDataDao();
 		sql="select * from User_Game where user='"+LoginUI.userNameGame+"'";

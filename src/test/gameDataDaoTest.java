@@ -9,10 +9,28 @@ import org.junit.Test;
 
 import dao.gameDataDao;
 
+// TODO: Auto-generated Javadoc
+/**
+ * gameDataDao ≤‚ ‘
+ * 
+ * @author zhouguangyu
+ * @version  v1.0
+ * @date 2020-7-5
+ */
 public class gameDataDaoTest {
+	
+	/** The rs. */
 	ResultSet rs=null;
+	
+	/** The sql. */
 	String sql="select * from user";
+	
+	/** The dao. */
 	gameDataDao dao=new gameDataDao();
+	
+	/**
+	 * ≤È—Ø∑Ω∑®≤‚ ‘.
+	 */
 	@Test
 	public void queryUserInfo() {
 		rs=dao.queryUserInfo(sql);

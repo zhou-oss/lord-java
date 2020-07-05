@@ -7,15 +7,34 @@ import org.junit.Test;
 
 import dao.modifiDao;
 
+// TODO: Auto-generated Javadoc
+/**
+ *modifiDao测试.
+ *
+ * @author zhouguangyu
+ * @version  v1.0
+ * @date 2020-7-5
+ */
 public class modifiDaoTest {
+	
+	/** The dao. */
 	modifiDao dao=new modifiDao();
+	
+	/** The sql. */
 	String sql="update user set name='000',sex='男' where user='111'";;
+	
+	/**
+	 *更新方法测试.
+	 */
 	@Test
 	public void updataUserInfo() {
 		int a=dao.updataUserInfo(sql);
 		assertEquals(1,a);
 	}
 
+	/**
+	 * 删除操作测试.
+	 */
 	@Test
 	public void deleteUserInfo() {
 		int a=dao.deleteUserInfo(sql);

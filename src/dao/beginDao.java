@@ -6,16 +6,46 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class beginDao.
+ *
+ * @author zhouguangyu
+ * @version  v1.0
+ * @date 2020-7-5
+ */
 public class beginDao {
+	
+	/** The stmt. */
 	private Statement stmt;
+	
+	/** The pstmt. */
 	private PreparedStatement pstmt;
+	
+	/** The rs. */
 	private ResultSet rs;
+	
+	/** The conn. */
 	private Connection conn = null;
 
+	/**
+	 * Instantiates a new begin dao.
+	 */
 	public beginDao() {
 		conn = JDBConnectionDao.getConnection();
 	}
 
+	/**
+	 * 插入操作.
+	 *
+	 * @param sql the sql
+	 * @param number the number
+	 * @param getScore the get score
+	 * @param bgame the bgame
+	 * @param ogame the ogame
+	 * @param user the user
+	 * @return the int
+	 */
 	// 保存用户信息
 	public int saveUserInfo(String sql, String number, String getScore, String bgame, String ogame, String user) {
 		try {
@@ -34,6 +64,12 @@ public class beginDao {
 		}
 	}
 
+	/**
+	 * 查询操作.
+	 *
+	 * @param sql the sql
+	 * @return the result set
+	 */
 	// 查询用户信息，返回结果集
 	public ResultSet queryUserInfo(String sql) {
 		try {

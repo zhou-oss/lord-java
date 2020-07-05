@@ -14,17 +14,46 @@ import jxl.Sheet;
 import jxl.Workbook;
 import jxl.write.*;
 
+// TODO: Auto-generated Javadoc
+/**
+ * Excel表的导入导出.
+ *
+ * @author zhouguangyu
+ * @version  v1.0
+ * @date 2020-7-5
+ */
 public class ExcelTest {
+	
+	/** The workbook. */
 	Workbook workbook = null;
+	
+	/** The sheet. */
 	Sheet sheet = null;
+	
+	/** The workbook 1. */
 	WritableWorkbook workbook1 = null;
+	
+	/** The rs. */
 	ResultSet rs=null;
+	
+	/** The rs 1. */
 	ResultSet rs1=null;
+	
+	/** The rs 2. */
 	ResultSet rs2=null;
+	
+	/** The dao. */
 	LoginDao dao = new LoginDao();
+	
+	/** The dao 1. */
 	RegisterDao dao1 = new RegisterDao();
+	
+	/** The dao 2. */
 	userDataDao   dao2=new userDataDao();
 
+	/**
+	 * Import excel.
+	 */
 	public void importExcel() {
 		try {
 			// Excel文件
@@ -81,6 +110,10 @@ public class ExcelTest {
 			workbook.close();
 		}
 	}
+	
+	/**
+	 * Export excel.
+	 */
 	public void exportExcel() {
 		try {
 			// 导出的文件
@@ -128,6 +161,10 @@ public class ExcelTest {
 			}
 		}
 	}
+	
+	/**
+	 * Export excel 1.
+	 */
 	public void exportExcel1() {
 		try {
 			// 导出的文件
@@ -190,6 +227,10 @@ public class ExcelTest {
 			}
 		}
 	}
+	
+	/**
+	 * Export excel 2.
+	 */
 	public void exportExcel2() {
 		try {
 			// 导出的文件
@@ -252,6 +293,12 @@ public class ExcelTest {
 			}
 		}
 	}
+	
+	/**
+	 * 主函数.
+	 *
+	 * @param args the arguments
+	 */
 	public static void main(String[] args) {
 		new ExcelTest().importExcel();
 	}

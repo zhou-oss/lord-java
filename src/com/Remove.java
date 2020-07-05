@@ -12,7 +12,23 @@ import javax.swing.JPanel;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class Remove.
+ *
+ * @author zhouguangyu
+ * @version  v1.0
+ * @date 2020-7-5
+ */
 public class Remove {
+	
+	/**
+	 * 卡牌移动.
+	 *
+	 * @param 卡牌对象
+	 * @param 原来坐标
+	 * @param 目的坐标
+	 */
 	public static void move(Card card, Point from, Point to) {
 		if (to.x != from.x) {
 			double k = (1.0) * (to.y - from.y) / (to.x - from.x);
@@ -37,6 +53,11 @@ public class Remove {
 		card.setLocation(to);
 	}
 
+	/**
+	 * 手牌排序.
+	 *
+	 * @param 手牌
+	 */
 	public static void sortCard(List<Card> list) {
 		Collections.sort(list, new Comparator<Card>() {
 			@Override
@@ -74,6 +95,13 @@ public class Remove {
 		});
 	}
 
+	/**
+	 * 重新定位.
+	 *
+	 * @param 容器
+	 * @param 手牌
+	 * @param 玩家
+	 */
 	// 重新定位 flag代表电脑1 ,2 或者是我
 	public static void rePosition(JPanel frame, List<Card> list, int flag) {
 //		Iterator<Card> iterator = list.iterator();
@@ -107,13 +135,23 @@ public class Remove {
 		}
 	}
 
-	// 隐藏之前出过的牌
+	/**
+	 * 收牌.
+	 *
+	 * @param 牌集合
+	 */
 	public static void hideCards(List<Card> list) {
 		for (int i = 0, len = list.size(); i < len; i++) {
 			list.get(i).setVisible(false);
 		}
 	}
 
+	/**
+	 * 判断牌型.
+	 *
+	 * @param 牌
+	 * @return 牌的类型
+	 */
 	// 判断牌型
 	public static CardType jugdeType(List<Card> list) {
 		// 因为之前排序过所以比较好判断
@@ -185,11 +223,23 @@ public class Remove {
 		return CardType.c0;
 	}
 
+	/**
+	 * 获得花色.
+	 *
+	 * @param 卡牌
+	 * @return 花色
+	 */
 	// 返回花色
 	public static int getColor(Card card) {
 		return Integer.parseInt(card.name.substring(0, 1));
 	}
 
+	/**
+	 * 获得权值.
+	 *
+	 * @param 卡牌
+	 * @return 值
+	 */
 	// 返回值
 	public static int getValue(Card card) {
 		int i = Integer.parseInt(card.name.substring(2, card.name.length()));
@@ -202,6 +252,13 @@ public class Remove {
 		return i;
 	}
 
+	/**
+	 * 获得最大相同数.
+	 *
+	 * @param 单牌个数
+	 * @param 牌集合
+	 * @return 最大相同数
+	 */
 	// 得到最大相同数
 	public static void getMax(Card_index card_index, List<Card> list) {
 		int count[] = new int[14];// 1-13各算一种,王算第14种
@@ -231,6 +288,13 @@ public class Remove {
 		}
 	}
 
+	/**
+	 * 获得牌型.
+	 *
+	 * @param 出牌
+	 * @param 花色
+	 * @return 牌型
+	 */
 	// 拆牌
 	public static Model getModel(List<Card> list, int[] orders) {
 		// 先复制一个list
@@ -241,6 +305,13 @@ public class Remove {
 		return model;
 	}
 
+	/**
+	 * Gets the 123.
+	 *
+	 * @param list the list
+	 * @param model the model
+	 * @return the 123
+	 */
 	// 拆连子
 	public static void get123(List<Card> list, Model model) {
 		List<Card> del = new ArrayList<Card>();// 要删除的Cards
@@ -281,6 +352,13 @@ public class Remove {
 		list.removeAll(del);
 	}
 
+	/**
+	 * Gets the two two.
+	 *
+	 * @param list the list
+	 * @param model the model
+	 * @return the two two
+	 */
 	// 拆双顺
 	public static void getTwoTwo(List<Card> list, Model model) {
 		List<String> del = new ArrayList<String>();// 要删除的Cards
@@ -316,6 +394,13 @@ public class Remove {
 		l.removeAll(del);
 	}
 
+	/**
+	 * Gets the plane.
+	 *
+	 * @param list the list
+	 * @param model the model
+	 * @return the plane
+	 */
 	// 拆飞机
 	public static void getPlane(List<Card> list, Model model) {
 		List<String> del = new ArrayList<String>();// 要删除的Cards
@@ -349,6 +434,13 @@ public class Remove {
 		l.removeAll(del);
 	}
 
+	/**
+	 * Gets the boomb.
+	 *
+	 * @param list the list
+	 * @param model the model
+	 * @return the boomb
+	 */
 	// 拆炸弹
 	public static void getBoomb(List<Card> list, Model model) {
 		List<Card> del = new ArrayList<Card>();// 要删除的Cards
@@ -382,6 +474,13 @@ public class Remove {
 		list.removeAll(del);
 	}
 
+	/**
+	 * Gets the three.
+	 *
+	 * @param list the list
+	 * @param model the model
+	 * @return the three
+	 */
 	// 拆3带
 	public static void getThree(List<Card> list, Model model) {
 		List<Card> del = new ArrayList<Card>();// 要删除的Cards
@@ -400,6 +499,13 @@ public class Remove {
 		list.removeAll(del);
 	}
 
+	/**
+	 * Gets the two.
+	 *
+	 * @param list the list
+	 * @param model the model
+	 * @return the two
+	 */
 	// 拆对子
 	public static void getTwo(List<Card> list, Model model) {
 		List<Card> del = new ArrayList<Card>();// 要删除的Cards
@@ -417,6 +523,13 @@ public class Remove {
 		list.removeAll(del);
 	}
 
+	/**
+	 * Gets the single.
+	 *
+	 * @param list the list
+	 * @param model the model
+	 * @return the single
+	 */
 	// 拆单牌
 	public static void getSingle(List<Card> list, Model model) {
 		List<Card> del = new ArrayList<Card>();// 要删除的Cards
@@ -428,6 +541,14 @@ public class Remove {
 		list.removeAll(del);
 	}
 
+	/**
+	 * Check cards.
+	 *
+	 * @param c the c
+	 * @param current the current
+	 * @param m the m
+	 * @return the int
+	 */
 	// 检查牌的是否能出
 	public static int checkCards(List<Card> c, List<Card>[] current, Begin m) {
 		// 找出当前最大的牌是哪个电脑出的,c是点选的牌
@@ -483,6 +604,12 @@ public class Remove {
 		return 1;
 	}
 
+	/**
+	 * Gets the order 2.
+	 *
+	 * @param list the list
+	 * @return the order 2
+	 */
 	// 按照重复次数排序
 	public static List getOrder2(List<Card> list) {
 		List<Card> list2 = new ArrayList<Card>(list);
@@ -514,6 +641,13 @@ public class Remove {
 		return list3;
 	}
 
+	/**
+	 * Show orders.
+	 *
+	 * @param i the i
+	 * @param list the list
+	 * @param model the model
+	 */
 	// 拆牌循序
 	public static void showOrders(int i, List<Card> list, Model model) {
 		switch (i) {

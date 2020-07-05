@@ -17,11 +17,31 @@ import javax.swing.JFrame;
 import javax.swing.JTextArea;
 
 
+// TODO: Auto-generated Javadoc
+/**
+ * 游戏规则.
+ *
+ * @author zhouguangyu
+ * @version  v1.0
+ * @date 2020-7-5
+ */
 public class ruleFile {
+	
+	/** The instance. */
 	private  static ruleFile instance=new ruleFile();
+	
+	/** The frame. */
 	private  static JFrame frame;
+	
+	/** The txt area. */
 	private JTextArea txtArea;
+	
+	/** The src. */
 	private ScrollPane src;
+	
+	/**
+	 * Instantiates a new rule file.
+	 */
 	private ruleFile() {
 		//准备界面
 		frame=new JFrame("游戏规则");
@@ -37,10 +57,20 @@ public class ruleFile {
 		frame.setLocationRelativeTo(null);
 		this.getRules();
 		}
+	
+	/**
+	 * Gets the rule file.
+	 *
+	 * @return the rule file
+	 */
 	public static ruleFile getRuleFile() {
 		frame.setVisible(true);
 		return instance;
 	}
+	
+	/**
+	 * 从文件获取规则.
+	 */
 	public void getRules(){
 		File file = new File("src/rules.txt");
 		FileInputStream fis = null;
